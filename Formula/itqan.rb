@@ -3,28 +3,28 @@
 class Itqan < Formula
   desc "Install and pin Itqan Quranic assets in your project"
   homepage "https://github.com/Itqan-community/itqan-cli"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/Itqan-community/itqan-cli/releases/download/v0.1.0/itqan-0.1.0-macos-arm64"
-      sha256 "bca1cbfee3b5d91b27dcbd2b3df2e4ae1fc0d41ff2dee66a40baaaf1d963f212"
+      url "https://github.com/Itqan-community/itqan-cli/releases/download/v0.1.1/itqan-0.1.1-macos-arm64"
+      sha256 "73336da834f7a6a53388ec10541573ffda5f289f85509f11ffe1f6fd2034406b"
     end
     on_intel do
-      url "https://github.com/Itqan-community/itqan-cli/releases/download/v0.1.0/itqan-0.1.0-macos-x86_64"
-      sha256 "7bd3374d1f967f8736a6626b0c4ef7912cf0d20556145b27886ebb475284c821"
+      url "https://github.com/Itqan-community/itqan-cli/releases/download/v0.1.1/itqan-0.1.1-macos-x86_64"
+      sha256 "ad0cf49dba5d50b319e338721a7425ddca34f2e112b2a0a9a5a44e6999f7fe24"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/Itqan-community/itqan-cli/releases/download/v0.1.0/itqan-0.1.0-linux-arm64"
-      sha256 "b6b144432da05685dae0623cc6a96bc254542437e35aeb6c70b265f9efd36e26"
+      url "https://github.com/Itqan-community/itqan-cli/releases/download/v0.1.1/itqan-0.1.1-linux-arm64"
+      sha256 "db275ca3cd88b29b56ca8deafe42f1ad407f6971ce1fd3774ba4ec615923d4ed"
     end
     on_intel do
-      url "https://github.com/Itqan-community/itqan-cli/releases/download/v0.1.0/itqan-0.1.0-linux-x86_64"
-      sha256 "60c40955837d0d322d1d6341afc7bc55d28fc0bcc266bf7fb7517fde4b24f0b5"
+      url "https://github.com/Itqan-community/itqan-cli/releases/download/v0.1.1/itqan-0.1.1-linux-x86_64"
+      sha256 "e4e3a95705d5d25c84102f2e3ed6f3350ffe41cd120a9d61674a87126adbd75f"
     end
   end
 
