@@ -1,0 +1,40 @@
+name: Test
+
+# Install and test every formula on each supported platform.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.runner }}
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [macos-15, macos-15-intel, ubuntu-22.04, ubuntu-22.04-arm]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Homebrew/actions/setup-homebrew@main
+      - name: Point the tap at this checkout
+        run: |
+          tap="$(brew --repo itqan-community/tap)"
+          mkdir -p "$(dirname "$tap")"
+          rm -rf "$tap"
+          ln -s "$GITHUB_WORKSPACE" "$tap"
+          brew trust --tap itqan-community/tap
+      - run: brew style itqan-community/tap
+      - run: brew install itqan-community/tap/itqan
+      - run: brew test itqan-community/tap/itqan
+      - name: Smoke-test against the registry
+        run: |
+          mkdir "$RUNNER_TEMP/smoke" && cd "$RUNNER_TEMP/smoke"
+          export ITQAN_CONFIG_DIR="$RUNNER_TEMP/itqan-config"
+          itqan init
+          itqan install
+          test -f itqan-assets.lock
